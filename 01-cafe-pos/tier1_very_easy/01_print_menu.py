@@ -40,10 +40,14 @@ item_3_price = 5.00
 item_4_name = "Toastie"
 item_4_price = 6.50
 
-# TODO 1: print a line of exactly 30 equals signs: "=============================="
-# TODO 2: print the title line: "The Trendiest CAFE - TODAY'S MENU"
-# TODO 3: print another line of 30 equals signs
-# TODO 4: print item 1 using item_1_name and item_1_price (see example output)
+# DONE 1: print a line of exactly 30 equals signs: "=============================="
+print("==============================")
+# DONE 2: print the title line: "The Trendiest CAFE - TODAY'S MENU"
+print("The Trendiest CAFE - TODAY'S MENU")
+# DONE 3: print another line of 30 equals signs
+print("==============================")
+# DONE 4: print item 1 using item_1_name and item_1_price (see example output)
+print(f"1. {item_1_name} - ${item_1_price}")
 # TODO 5: print item 2 using item_2_name and item_2_price
 # TODO 6: print item 3 using item_3_name and item_3_price
 # TODO 7: print item 4 using item_4_name and item_4_price
