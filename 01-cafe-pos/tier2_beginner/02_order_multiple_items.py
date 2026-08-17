@@ -36,11 +36,11 @@ HINTS
 """
 
 MENU = {
-    "Coffee": 4.50,
-    "Tea": 3.50,
-    "Muffin": 5.00,
-    "Toastie": 6.50,
-    "Hot Chocolate": 4.00,
+    "coffee": 4.50,
+    "tea": 3.50,
+    "muffin": 5.00,
+    "toastie": 6.50,
+    "hot chocolate": 4.00,
 }
 
 total = 0
@@ -51,6 +51,36 @@ total = 0
 #   - if the answer is a valid menu item, adds its price to `total`
 #     and prints "Added {item} - ${price}"
 #   - otherwise prints "Sorry, {item} is not on the menu."
+
+
+
+
+# set loop variable
+order = "Not Done"
+
+# until the user enters "done" keep asking for items
+while order != "done":
+   # get the user input
+   order = input("What would you like? (type 'done' to finish): ")
+   # convert the user input to lower case
+   order = order.lower()
+
+   # check if the input is in the MENU
+   if order in MENU:
+        price = MENU[order]
+        total += price
+        print(f"Added {order} - ${price}")
+   else:
+       print(f"We do not sell {order}. Please select an item from the MENU")
+
+# outside the order loop, tell them to pay up!
+print("Thank you for you order.")
+print(f"Total owing: {total}")
+
+
+
+
+
 
 
 # TODO: after the loop finishes, print the final total, e.g. "Your total is $9.5"
