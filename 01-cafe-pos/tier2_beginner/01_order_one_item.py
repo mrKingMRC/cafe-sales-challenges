@@ -41,11 +41,19 @@ MENU = {
     "Hot Chocolate": 4.00,
 }
 
-# TODO 1: ask the customer what they would like, using input(), and store
+# done 1: ask the customer what they would like, using input(), and store
 #         their answer in a variable called order_item
 customer_order = input("What items would you like to request at this fine establishment that we call a cafe")
 if customer_order in MENU:
     print(f'good job you have orderd a {customer_order} a classic of this fine establishment')
+    break
+else:
+    print("sorry we don't have that")
+
+
+
+
+    
 # TODO 2: check whether order_item exists in MENU
 #         - if it does: print "Great choice! {order_item} costs ${price}."
 #         - if it doesn't: print "Sorry, we don't have {order_item} on the menu today."
