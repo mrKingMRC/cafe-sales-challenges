@@ -34,26 +34,27 @@ HINTS
 """
 
 MENU = {
-    "Coffee": 4.50,
-    "Tea": 3.50,
-    "Muffin": 5.00,
-    "Toastie": 6.50,
-    "Hot Chocolate": 4.00,
+    "coffee": 4.50,
+    "tea": 3.50,
+    "muffin": 5.00,
+    "toastie": 6.50,
+    "hot chocolate": 4.00,
 }
 
 # done 1: ask the customer what they would like, using input(), and store
 #         their answer in a variable called order_item
-customer_order = input("What items would you like to request at this fine establishment that we call a cafe")
-if customer_order in MENU:
-    print(f'good job you have orderd a {customer_order} a classic of this fine establishment')
-    break
-else:
-    print("sorry we don't have that")
+while True:
+    customer_order = input("What items would you like to request at this fine establishment that we call a cafe ")
+    if customer_order in MENU:
+        print(f'good job you have orderd a {customer_order} a classic of this fine establishment that costs {MENU[customer_order]}')
+        break
+    else:
+        print("sorry we don't have that")
 
 
 
 
-    
-# TODO 2: check whether order_item exists in MENU
+
+# done 2: check whether order_item exists in MENU
 #         - if it does: print "Great choice! {order_item} costs ${price}."
 #         - if it doesn't: print "Sorry, we don't have {order_item} on the menu today."
