@@ -32,7 +32,7 @@ def main():
     #   - asks for an item name
     #   - if it's "done", break out of the loop
     #   - otherwise ask for a quantity (convert the input to an int!)
-    #   - call order.add_item(item_name, quantity)
+    #   - call  `(item_name, quantity)
 
     print(generate_receipt(order))
 
