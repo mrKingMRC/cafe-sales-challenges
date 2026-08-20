@@ -50,15 +50,15 @@ total = 0
 #   - if the answer is "done", stops the loop
 #   - if the answer is a valid menu item, adds its price to `total`
 #     and prints "Added {item} - ${price}"
-#   - otherwise prints "Sorry, {item} is not on the menu."
-list=[]
+#   - otherwise prints "Sorry, {item} is not on the menu."t=[]
+shopping_cart=[]
 
 # TODO: after the loop finishes, print the final total, e.g. "Your total is $9.5"
 while True:
     customer_order = input("What items would you like to request at this fine establishment that we call a cafe ")
     if customer_order in MENU:
         print(f'good job you have orderd a {customer_order} a classic of this fine establishment that costs {MENU[customer_order]}')
-        list.append(customer_order)
+        list.append(shopping_cart)
         break
     else:
         print("sorry we don't have that")
@@ -66,8 +66,8 @@ while order != "done"
 order =input(what would you like?(type 'done' to finish): ")
 order = order. lower()
 if order in Menu:
-    price =Munu[order]
+    price =Menu[order]
     total += price
-    print(f"Added {order} - ${price}")
+    print(f"Added { customer_order} - ${price}")
     print("thank you for your order")
     print(f"Total owing:{total}")
