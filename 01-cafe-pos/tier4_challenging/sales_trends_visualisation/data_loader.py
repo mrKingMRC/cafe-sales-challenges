@@ -22,9 +22,10 @@ like a spreadsheet you can work with in code).
 """
 
 import pandas as pd
+from pathlib import Path
 
 
-def load_sales(csv_path="weekly_sales.csv"):
+def load_sales(csv_path=Path(__file__).resolve().parent / "weekly_sales.csv"):
     """
     Read csv_path using pandas and return it as a DataFrame.
 
@@ -32,7 +33,7 @@ def load_sales(csv_path="weekly_sales.csv"):
         return pd.read_csv(csv_path)
     """
     # TODO: implement this function
-    pass
+    return pd.read_csv(csv_path)
 
 
 if __name__ == "__main__":

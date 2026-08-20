@@ -30,12 +30,27 @@ def plot_best_sellers(df):
       5. Rotate the x-axis labels 45 degrees so they don't overlap:
          plt.xticks(rotation=45, ha="right")
       6. Call plt.tight_layout() so nothing gets cut off.
-
-    Hint:
-        totals = df.groupby("item")["quantity"].sum().sort_values(ascending=False)
     """
-    # TODO: implement this function
-    pass
+
+    
+    totals = df.groupby("item")["quantity"].sum().sort_values(ascending=False)
+    AxisPowers = totals.index.to_list()
+    totals = totals.to_list()
+
+    fig, ax = plt.subplots()
+
+    ax.bar(AxisPowers, totals, 0.5, label='Online', color='teal')
+
+    # Fix X-axis labels over the adjusted groups
+    #ax.set_xticks(x)
+    #ax.set_xticklabels(categories)
+
+    plt.title("The Trendiest — Best Sellers This Week")
+    plt.xlabel('Item')
+    plt.ylabel('Total Quantity Sold') 
+    plt.xticks(rotation=45,ha="right")
+    plt.tight_layout()
+    
 
 
 def plot_revenue_by_hour(df):
@@ -52,6 +67,17 @@ def plot_revenue_by_hour(df):
       4. Add a title ("The Trendiest — Revenue by Hour of Day"), and axis
          labels ("Hour", "Total Revenue ($)").
       5. Call plt.tight_layout().
-    """
-    # TODO: implement this function
-    pass
+    """   
+    totals = df.groupby("hour")["revenue"].sum().sort_values(ascending=False)
+    AxisPowers = totals.index.to_list()
+    totals = totals.to_list()
+
+    fig, ax = plt.subplots()
+
+    ax.bar(AxisPowers, totals, 0.5, label='Online', color='teal')
+
+    plt.title("The Trendiest — Revenue by Hour of Day")
+    plt.xlabel('Hour')
+    plt.ylabel('Total Revenue ($)') 
+    plt.tight_layout()
+

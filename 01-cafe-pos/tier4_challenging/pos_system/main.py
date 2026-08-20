@@ -33,7 +33,18 @@ def main():
     #   - if it's "done", break out of the loop
     #   - otherwise ask for a quantity (convert the input to an int!)
     #   - call order.add_item(item_name, quantity)
-
+    while True:
+        item_name = ''
+        quantity = None
+        item_name = input("Add item (type 'done' to exit): ")
+        if item_name == 'done':
+            break
+        try:
+            quantity = int(input("How many (default=1): "))
+        except:
+            ...
+        order.add_item(item_name, quantity)
+    
     print(generate_receipt(order))
 
 

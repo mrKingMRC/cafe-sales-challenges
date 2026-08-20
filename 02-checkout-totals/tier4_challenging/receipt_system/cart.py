@@ -42,8 +42,8 @@ class Cart:
         can check prices, and set up an empty dictionary (self.items) to
         hold {item_name: quantity}.
         """
-        # TODO: implement this method
-        pass
+        self.menu = menu
+        self.items = {}
 
     def add_item(self, item_name, quantity=1):
         """
@@ -53,8 +53,14 @@ class Cart:
         - If the item is already in the cart, increase its quantity.
         - Otherwise, add it as a new entry.
         """
-        # TODO: implement this method
-        pass
+        if item_name not in self.menu:
+            print(f'Sorry, {item_name} is not on the menu.')
+            pass
+        if item_name not in self.items:
+            self.items[item_name] = quantity
+        else:
+            self.items[item_name] += quantity
+        return self.items[item_name]
 
     def remove_item(self, item_name, quantity=1):
         """
@@ -63,8 +69,14 @@ class Cart:
           item entirely.
         - If the item isn't in the cart, print "{item_name} isn't in the cart."
         """
-        # TODO: implement this method
+        if item_name not in self.items:
+            print(f"{item_name} isn't in the cart.")
+            pass
+        self.items[item_name] -= quantity
+        if self.items[item_name] <= 0:
+            del self.items[item_name]
         pass
+
 
     def get_subtotal(self):
         """
@@ -72,8 +84,10 @@ class Cart:
         discounts or tax, taking quantities into account
         (price * quantity for each item).
         """
-        # TODO: implement this method
-        pass
+        total = 0
+        for item in self.items:
+            total += self.menu[item] * self.items[item]
+        return total
 
 
 if __name__ == "__main__":

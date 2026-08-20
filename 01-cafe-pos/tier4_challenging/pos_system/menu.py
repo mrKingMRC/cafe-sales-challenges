@@ -21,12 +21,13 @@ questions about what's available and how much things cost.
 
 import json
 import os
+from pathlib import Path
 
 
 class Menu:
     """Loads and provides access to the café's menu."""
 
-    def __init__(self, data_path="menu_data.json"):
+    def __init__(self, data_path="/workspaces/cafe-sales-challenges/01-cafe-pos/tier4_challenging/pos_system/menu_data.json"):
         """
         Load the menu from the JSON file at data_path into self.items,
         a dictionary of {item_name: price}.
@@ -35,23 +36,27 @@ class Menu:
             with open(data_path) as f:
                 self.items = json.load(f)
         """
-        # TODO: implement this method
-        pass
+        with open( data_path, "r" ) as f:
+            self.items = json.load(f)
 
     def has_item(self, item_name):
         """Return True if item_name exists on the menu, False otherwise."""
         # TODO: implement this method
-        pass
+        if item_name not in self.items:
+            return False
+        return True
 
     def get_price(self, item_name):
         """Return the price of item_name, or None if it isn't on the menu."""
         # TODO: implement this method
-        pass
+        if item_name not in self.items:
+            return None
+        return self.items[item_name]
 
     def list_items(self):
         """Return a list of every item name on the menu."""
         # TODO: implement this method
-        pass
+        return list(self.items.keys())
 
 
 if __name__ == "__main__":

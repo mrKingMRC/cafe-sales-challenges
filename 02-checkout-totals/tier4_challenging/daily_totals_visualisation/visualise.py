@@ -37,8 +37,21 @@ def plot_daily_revenue(df):
          plt.xticks(rotation=45, ha="right")
       5. Call plt.tight_layout() so nothing gets cut off.
     """
-    # TODO: implement this function
-    pass
+    df.sort_values("date").tail(30)
+    
+    fig, ax = plt.subplots()
+
+    ax.bar(df["date"], df["total_sales"], 0.5, label='Online', color='teal')
+
+    # Fix X-axis labels over the adjusted groups
+    #ax.set_xticks(x)
+    #ax.set_xticklabels(categories)
+
+    plt.title("The Trendiest — Daily Revenue (Last 30 Days)")
+    plt.xlabel('Date')
+    plt.ylabel('Total Sales ($)') 
+    plt.xticks(rotation=45,ha="right")
+    plt.tight_layout()
 
 
 def plot_average_by_day_of_week(df):
@@ -62,5 +75,22 @@ def plot_average_by_day_of_week(df):
       5. Rotate the x-axis labels 45 degrees: plt.xticks(rotation=45, ha="right")
       6. Call plt.tight_layout().
     """
-    # TODO: implement this function
-    pass
+    day_order = ["Monday", "Tuesday", "Wednesday", "Thursday",
+                "Friday", "Saturday", "Sunday"]
+    averages = df.groupby("day_of_week")["total_sales"].mean()
+    averages = averages.reindex(day_order)
+
+    rolling = df["total_sales"].rolling(7).mean()
+    rolling = rolling.reindex(day_order)
+    
+    fig, ax = plt.subplots()
+
+    ax.bar(day_order, averages, 0.5, label='Online', color='teal')
+    
+
+    plt.title("The Trendiest — Average Revenue by Day of Week")
+    plt.xlabel("Day of Week")
+    plt.ylabel("Average Total Sales ($)") 
+    plt.xticks(rotation=45,ha="right")
+    plt.legend()
+    plt.tight_layout()

@@ -23,9 +23,10 @@ column is parsed as an actual date (not just text).
 """
 
 import pandas as pd
+from pathlib import Path
 
 
-def load_daily_totals(csv_path="daily_totals.csv"):
+def load_daily_totals(csv_path=Path(__file__).parent / "daily_totals.csv"):
     """
     Read csv_path using pandas and return it as a DataFrame, with the
     "date" column parsed as a real date type.
@@ -33,8 +34,7 @@ def load_daily_totals(csv_path="daily_totals.csv"):
     Hint:
         return pd.read_csv(csv_path, parse_dates=["date"])
     """
-    # TODO: implement this function
-    pass
+    return pd.read_csv(csv_path, parse_dates=["date"])
 
 
 if __name__ == "__main__":

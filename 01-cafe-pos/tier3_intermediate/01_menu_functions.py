@@ -48,7 +48,9 @@ def get_price(item_name):
         get_price("Pizza") -> None
     """
     # TODO: implement this function
-    pass
+    if item_name not in MENU:
+        raise Exception("Item not on menu")
+    return MENU[item_name]
 
 
 def calculate_total(order_list):
@@ -60,8 +62,10 @@ def calculate_total(order_list):
     Example:
         calculate_total(["Coffee", "Muffin"]) -> 9.5
     """
-    # TODO: implement this function
-    pass
+    total = 0.0
+    for item in order_list:
+        Total += get_price(item)
+    return total
 
 
 def display_receipt(order_list, total):
@@ -70,7 +74,11 @@ def display_receipt(order_list, total):
     matching the style shown in the EXAMPLE OUTPUT above.
     """
     # TODO: implement this function
-    pass
+    print("----- RECEIPT -----")
+    for item in order_list:
+        print(f"{item}            ${get_price(item)}")
+    print("--------------------")
+    print(f"TOTAL:            $f{total}")
 
 
 if __name__ == "__main__":
@@ -78,7 +86,17 @@ if __name__ == "__main__":
 
     # TODO: write a while loop (like in tier2) that asks the customer what
     # they'd like, adds valid items to order_list, and stops when they type
-    # "done".
+    # 'done'
+    while True:
+        item = input("What would you like? (type 'done' to finish): ")
+        try:
+            price = get_price(item)
+            print(f"Added {item} - ${price}")
+            order_list.append(item)
+        except Exception as e:
+            print("not on menu")
 
     # TODO: once the loop is done, call calculate_total() and then
     # display_receipt() to show the final receipt.
+    total = calculate_total(order_list)
+    display_receipt(order_list, total)

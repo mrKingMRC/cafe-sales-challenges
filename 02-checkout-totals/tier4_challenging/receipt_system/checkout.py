@@ -51,8 +51,9 @@ class Checkout(object):
         Store the cart, whether the customer is a loyalty member, and an
         optional voucher_code string (or None).
         """
-        # TODO: implement this method
-        pass
+        self.cart = cart
+        self.is_loyalty_member = is_loyalty_member
+        self.voucher_code = voucher_code
 
     def calculate_total(self):
         """
@@ -68,8 +69,11 @@ class Checkout(object):
           4. Add GST (GST_RATE) on top of whatever remains.
         Return the final total, rounded to 2 decimal places.
         """
-        # TODO: implement this method
-        pass
+        subtotal = self.cart.get_subtotal()
+        if self.is_loyalty_member:
+            subtotal *= 0.9
+        
+        ...
 
     def generate_receipt(self):
         """

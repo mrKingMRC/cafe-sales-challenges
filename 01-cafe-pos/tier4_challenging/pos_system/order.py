@@ -24,7 +24,8 @@ class Order:
         an empty dictionary (self.items) to hold {item_name: quantity}.
         """
         # TODO: implement this method
-        pass
+        self.menu = Menu()
+        self.items = {}
 
     def add_item(self, item_name, quantity=1):
         """
@@ -34,7 +35,13 @@ class Order:
         - Otherwise, add it as a new entry.
         """
         # TODO: implement this method
-        pass
+        if not self.menu.has_item(item_name):
+            print(f"{item_name} not on menu.")
+            return False
+        if item_name in self.items:
+            self.items[item_name] += quantity
+        self.items[item_name] = quantity
+        return True
 
     def remove_item(self, item_name, quantity=1):
         """
@@ -44,7 +51,13 @@ class Order:
         - If the item isn't in the order, print a message saying so.
         """
         # TODO: implement this method
-        pass
+        if item_name not in self.items:
+            print(f"{item_name} not in order.")
+            return False
+        self.items[item_name] -= quantity
+        if self.items[item_name] <= 0:
+            del self.items[item_name]
+        return True
 
     def get_subtotal(self):
         """
@@ -52,7 +65,10 @@ class Order:
         taking quantities into account (price * quantity for each item).
         """
         # TODO: implement this method
-        pass
+        total = 0.0
+        for item in self.items:
+            total += self.menu.items[item] * self.items[item]
+        return total
 
 
 if __name__ == "__main__":

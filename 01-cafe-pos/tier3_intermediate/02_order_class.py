@@ -39,7 +39,7 @@ class Order:
     def __init__(self):
         """Set up an empty order. Hint: you'll need a list to store item names."""
         # TODO: create self.items as an empty list
-        pass
+        self.items = []
 
     def add_item(self, item_name):
         """
@@ -48,7 +48,11 @@ class Order:
         Print "Sorry, {item_name} is not on the menu." if it isn't a valid item.
         """
         # TODO: implement this method
-        pass
+        if item_name not in MENU:
+            print(f"Sorry, {item_name} is not on the menu.")
+            return None
+        print(f"Added {item_name} to the order.")
+        self.items.append(item_name)
 
     def remove_item(self, item_name):
         """
@@ -57,12 +61,19 @@ class Order:
         Print "{item_name} isn't in this order." if it wasn't there.
         """
         # TODO: implement this method
-        pass
+        if item_name not in self.items:
+            print(f"{item_name} isn't in this order.")
+            return None
+        print(f"Removed {item_name} from the order.")
+        self.items.remove(item_name)
 
     def get_total(self):
         """Return the total price of everything currently in self.items."""
         # TODO: implement this method
-        pass
+        total = 0
+        for item in self.items:
+            total += MENU[item]
+        return total
 
 
 if __name__ == "__main__":
