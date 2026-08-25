@@ -71,3 +71,4 @@ if order in Menu:
     print(f"Added { customer_order} - ${price}")
     print("thank you for your order")
     print(f"Total owing:{total}")
+  
