@@ -31,37 +31,27 @@ TOTAL:            $9.50
 """
 
 MENU = {
-    "Coffee": 4.50,
-    "Tea": 3.50,
-    "Muffin": 5.00,
-    "Toastie": 6.50,
-    "Hot Chocolate": 4.00,
+    "coffee": 4.50,
+    "tea": 3.50,
+    "muffin": 5.00,
+    "toastie": 6.50,
+    "hot chocolate": 4.00,
 }
 
 
 def get_price(item_name):
-    """
-    Return the price of item_name from MENU, or None if it isn't on the menu.
-
-    Example:
-        get_price("Tea") -> 3.5
-        get_price("Pizza") -> None
-    """
     # TODO: implement this function
-    pass
+    if item_name in MENU:
+            price = MENU[item_name]
+            return price
 
 
 def calculate_total(order_list):
-    """
-    order_list is a list of item names, e.g. ["Coffee", "Muffin"].
-    Return the sum of all their prices (use get_price() to look each one up).
-    Skip any item that isn't found on the menu (don't crash!).
-
-    Example:
-        calculate_total(["Coffee", "Muffin"]) -> 9.5
-    """
     # TODO: implement this function
-    pass
+    for items in order_list:
+         total += get_price(items)
+    return total
+
 
 
 def display_receipt(order_list, total):
