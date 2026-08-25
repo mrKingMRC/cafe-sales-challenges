@@ -1,3 +1,10 @@
+MENU = {
+    "Coffee": 4.50,
+    "Tea": 3.50,
+    "Muffin": 5.00,
+    "Toastie": 6.50,
+    "Hot Chocolate": 4.00,
+}
 class Order:
     """Represents one customer's order at The Trendiest Café."""
 
