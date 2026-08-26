@@ -26,7 +26,7 @@ class Order:
         if item_name in self.items:
             self.items[item_name] += quantity
         else:
-            if menu.has_item(item_name):
+            if self.menu.has_item(item_name):
                 self.items[item_name] = quantity
             else:
                 print(f"Sorry we do not currently stock {item_name}")
@@ -41,8 +41,8 @@ class Order:
     def get_subtotal(self):
         subtotal = 0
         for item in self.items:
-            subtotal += self.items[item] * menu.get_price(item)
-            return subtotal
+            subtotal += self.items[item] * self.menu.get_price(item)
+        return subtotal
 
 
 if __name__ == "__main__":
@@ -50,6 +50,6 @@ if __name__ == "__main__":
     order = Order(menu)
     order.add_item("Coffee", 2)
     order.add_item("Muffin", 1)
-    order.add_item("Tea", 6)
+    order.add_item("Tea", 1)
     print("Order items:", order.items)
     print("Subtotal:", order.get_subtotal())
