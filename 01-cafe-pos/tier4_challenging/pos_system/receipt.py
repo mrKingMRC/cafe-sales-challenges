@@ -30,7 +30,7 @@ def generate_receipt(order: Order, menu):
    receipt = ""
    receipt += "------------RECEIPT------------\n"
    for item in order.items:
-      receipt += (f"{item}{' ' * (15-len(item))}x{order.items[item]}{' ' * (15 - len(item) + (len(str(order.items[item]))))}${menu.get_price(item)}\n")
+      receipt += (f"{item}{' ' * (15-len(item))}x{order.items[item]}{' ' * (15 - len(item) - (len(str(order.items[item]))))}${menu.get_price(item)}\n")
    receipt += "-------------------------------\n"
    receipt += f"Subtotal: ${str(order.get_subtotal())}\n"
    receipt += f"GST (10%): ${order.get_subtotal() / 10}\n"
@@ -63,6 +63,6 @@ if __name__ == "__main__":
 
     menu = Menu()
     order = Order(menu)
-    order.add_item("Coffee", 2)
+    order.add_item("Coffee", 60)
     order.add_item("Muffin", 1)
     print(generate_receipt(order, menu))
